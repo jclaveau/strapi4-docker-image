@@ -15,22 +15,28 @@ ARG NODE_ENV=development
 # COPY heroku/node-v14.19.3-headers.tar.gz /tmp/node-headers.tgz
 # RUN npm config set tarball /tmp/node-headers.tgz
 
-RUN npm add -g concurrently
-
+# RUN npm add -g concurrently
 
 WORKDIR /opt/
 RUN npx create-strapi-app@latest strapi-tmp-project --quickstart --no-run
-RUN yarn add pg pg-connection-string mysql
+# RUN yarn add pg pg-connection-string mysql
 
-# TODO
-# Remove -dev packages used for Sharp/libvips building
-# Remove tmp project
-# add pg && mysql
 
 FROM strapi4-fresh as strapi4-deps
 ARG NODE_ENV=production
 # Remove the starter to only keep the yarn cache
 RUN rm -rf /opt/strapi-tmp-project
+
+FROM strapi4-deps as strapi4-deps-heroku
+ARG NODE_ENV=production
+RUN npm add -g concurrently
+RUN yarn add pg pg-connection-string
+
+FROM strapi4-deps as strapi4-quasar2-deps-heroku
+WORKDIR /opt/quasar
+COPY ./quasar/package*.json ./
+
+
 
 FROM strapi4-fresh as strapi4-sharp-tests
 RUN apk add git
@@ -47,7 +53,7 @@ RUN yarn
 # RUN yarn test-unit
 
 FROM strapi4-fresh as strapi4-strapi-tests
-RUN apk add git
+RUN apk add git python3
 WORKDIR /opt/strapi
 RUN git clone https://github.com/strapi/strapi.git .
 RUN yarn
