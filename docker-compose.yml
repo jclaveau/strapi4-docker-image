@@ -1,10 +1,46 @@
 # https://blog.dehlin.dev/docker-with-strapi-v4
 version: "3"
 services:
-  app:
-    container_name: strapi4-base
+  strapi4-deps-ctn:
+    container_name: strapi4-deps-ctn
     build:
       context: .
       dockerfile: Dockerfile
-    image: strapi4-base
-    command: yarn --cwd /opt/strapi-tmp-project/ develop
+      target: strapi4-deps
+    image: strapi4-deps
+    # command: yarn --cwd /opt/strapi-tmp-project/ develop
+
+  strapi4-sharp-tests-ctn:
+    container_name: strapi4-sharp-tests-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-sharp-tests
+    image: strapi4-sharp-tests
+    # command: sleep 10000
+    command: |
+      yarn --cwd /opt/sharp-dev/ test-unit
+
+  strapi4-postgres-pg-tests-ctn:
+    container_name: strapi4-postgres-pg-tests-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-postgres-tests
+    image: strapi4-postgres-tests
+    # command: sleep 10000
+    command: |
+      yarn --cwd /opt/postgres/packages/pg test
+
+
+  strapi4-postgres-pg-connection-string-tests-ctn:
+    container_name: strapi4-postgres-pg-connection-string-tests-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-postgres-tests
+    image: strapi4-postgres-tests
+    # command: sleep 10000
+    command: |
+      yarn --cwd /opt/postgres/packages/pg-connection-string test
+
