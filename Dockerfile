@@ -1,4 +1,4 @@
-FROM node:14-alpine as strapi4-fresh
+FROM node:16-alpine as strapi4-fresh
 # Installing libvips-dev for sharp Compatability
 RUN apk update && apk add bash
 # RUN apk update && apk add  build-base gcc autoconf automake zlib-dev libpng-dev nasm  vips-dev
@@ -52,11 +52,19 @@ RUN git clone https://github.com/brianc/node-postgres.git .
 RUN yarn
 # RUN yarn test-unit
 
-FROM strapi4-fresh as strapi4-strapi-tests
-RUN apk add git python3
-WORKDIR /opt/strapi
-RUN git clone https://github.com/strapi/strapi.git .
-RUN yarn
-RUN build
+# FROM strapi4-fresh as strapi4-strapi-tests
+# RUN apk add git
+# WORKDIR /opt/strapi
+# RUN git clone https://github.com/strapi/strapi.git .
+
+# RUN npm uninstall sqlite3
+# RUN npm cache clean
+# RUN npm install sqlite3
+
+# RUN apk add python2 make
+# RUN apk update && apk add  build-base gcc autoconf automake
+# RUN apk update && apk add  build-base gcc autoconf automake zlib-dev libpng-dev nasm  vips-dev
+# RUN yarn
+# RUN build
 # RUN yarn test-unit
 

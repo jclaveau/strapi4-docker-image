@@ -6,8 +6,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: strapi4-fresh
-    image: strapi4-fresh
+      target: strapi4-deps
+    image: strapi4-deps
+    # command: yarn --cwd /opt/strapi-tmp-project/ develop
+
+  strapi4-deps-heroku-ctn:
+    container_name: strapi4-deps-heroku-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-deps-heroku
+    image: strapi4-deps-heroku
     # command: yarn --cwd /opt/strapi-tmp-project/ develop
 
   strapi4-sharp-tests-ctn:
@@ -44,25 +53,25 @@ services:
     command: |
       yarn --cwd /opt/postgres/packages/pg-connection-string test
 
-  strapi4-strapi-unit-front-tests-ctn:
-    container_name: strapi4-strapi-unit-front-tests-ctn
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: strapi4-strapi-tests
-    image: strapi4-strapi-tests
-    # command: sleep 10000
-    command: |
-      yarn --cwd /opt/strapi test:front
+  # strapi4-strapi-unit-front-tests-ctn:
+  #   container_name: strapi4-strapi-unit-front-tests-ctn
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: strapi4-strapi-tests
+  #   image: strapi4-strapi-tests
+  #   # command: sleep 10000
+  #   command: |
+  #     yarn --cwd /opt/strapi test:front
 
-  strapi4-strapi-unit-back-tests-ctn:
-    container_name: strapi4-strapi-unit-back-tests-ctn
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: strapi4-strapi-tests
-    image: strapi4-strapi-tests
-    # command: sleep 10000
-    command: |
-      yarn --cwd /opt/strapi test:back
+  # strapi4-strapi-unit-back-tests-ctn:
+  #   container_name: strapi4-strapi-unit-back-tests-ctn
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: strapi4-strapi-tests
+  #   image: strapi4-strapi-tests
+  #   # command: sleep 10000
+  #   command: |
+  #     yarn --cwd /opt/strapi test:back
 
