@@ -1,0 +1,21 @@
+name: Tests
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-container:
+         - strapi4-sharp-tests-ctn
+         - strapi4-postgres-pg-tests-ctn
+         - strapi4-postgres-pg-connection-string-tests-ctn
+         - strapi4-strapi-unit-front-tests-ctn
+         - strapi4-strapi-unit-back-tests-ctn
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build the stack
+        run: docker-compose build ${{ matrix.test-container }}
+
+      - name: Test
+        run: docker-compose up ${{ matrix.test-container }}
