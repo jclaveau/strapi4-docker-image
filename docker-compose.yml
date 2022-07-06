@@ -1,0 +1,10 @@
+# https://blog.dehlin.dev/docker-with-strapi-v4
+version: "3"
+services:
+  app:
+    container_name: strapi4-base
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: strapi4-base
+    command: yarn --cwd /opt/strapi-tmp-project/ develop
