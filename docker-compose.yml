@@ -1,14 +1,23 @@
 # https://blog.dehlin.dev/docker-with-strapi-v4
 version: "3"
 services:
+
+  strapi4-fresh-ctn:
+    container_name: strapi4-fresh-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-fresh
+    image: jclaveau/strapi4-fresh
+    command: yarn --cwd /opt/strapi-tmp-project/ develop
+
   strapi4-deps-ctn:
     container_name: strapi4-deps-ctn
     build:
       context: .
       dockerfile: Dockerfile
       target: strapi4-deps
-    image: strapi4-deps
-    # command: yarn --cwd /opt/strapi-tmp-project/ develop
+    image: jclaveau/strapi4-deps
 
   strapi4-deps-heroku-ctn:
     container_name: strapi4-deps-heroku-ctn
@@ -16,8 +25,15 @@ services:
       context: .
       dockerfile: Dockerfile
       target: strapi4-deps-heroku
-    image: strapi4-deps-heroku
-    # command: yarn --cwd /opt/strapi-tmp-project/ develop
+    image: jclaveau/strapi4-deps-heroku
+
+  strapi4-quasar2-deps-heroku-ctn:
+    container_name: strapi4-quasar2-deps-heroku-ctn
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: strapi4-quasar2-deps-heroku
+    image: jclaveau/strapi4-quasar2-deps-heroku
 
   strapi4-sharp-tests-ctn:
     container_name: strapi4-sharp-tests-ctn
@@ -25,7 +41,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: strapi4-sharp-tests
-    image: strapi4-sharp-tests
+    image: jclaveau/strapi4-sharp-tests
     # command: sleep 10000
     command: |
       yarn --cwd /opt/sharp-dev/ test-unit
@@ -36,7 +52,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: strapi4-postgres-tests
-    image: strapi4-postgres-tests
+    image: jclaveau/strapi4-postgres-tests
     # command: sleep 10000
     command: |
       yarn --cwd /opt/postgres/packages/pg test
@@ -48,7 +64,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: strapi4-postgres-tests
-    image: strapi4-postgres-tests
+    image: jclaveau/strapi4-postgres-tests
     # command: sleep 10000
     command: |
       yarn --cwd /opt/postgres/packages/pg-connection-string test
@@ -59,7 +75,7 @@ services:
   #     context: .
   #     dockerfile: Dockerfile
   #     target: strapi4-strapi-tests
-  #   image: strapi4-strapi-tests
+  #   image: jclaveau/strapi4-strapi-tests
   #   # command: sleep 10000
   #   command: |
   #     yarn --cwd /opt/strapi test:front
@@ -70,7 +86,7 @@ services:
   #     context: .
   #     dockerfile: Dockerfile
   #     target: strapi4-strapi-tests
-  #   image: strapi4-strapi-tests
+  #   image: jclaveau/strapi4-strapi-tests
   #   # command: sleep 10000
   #   command: |
   #     yarn --cwd /opt/strapi test:back

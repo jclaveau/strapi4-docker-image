@@ -29,13 +29,21 @@ RUN rm -rf /opt/strapi-tmp-project
 
 FROM strapi4-deps as strapi4-deps-heroku
 ARG NODE_ENV=production
-RUN npm add -g concurrently
 RUN yarn add pg pg-connection-string
 
-FROM strapi4-deps as strapi4-quasar2-deps-heroku
-WORKDIR /opt/quasar
-COPY ./quasar/package*.json ./
 
+
+FROM strapi4-deps as strapi4-quasar2-deps-heroku
+RUN npm add -g concurrently
+
+RUN yarn global add @quasar/cli
+# RUN yarn global add @quasar/cli --production=false
+
+# load the yarn cache
+WORKDIR /opt/quasar
+COPY ./quasar/ .
+RUN yarn
+RUN rm -rf /opt/quasar
 
 
 FROM strapi4-fresh as strapi4-sharp-tests

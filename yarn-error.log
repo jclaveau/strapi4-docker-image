@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/bin/node /home/jean/.yarn/bin/yarn.js config set cache-folder /home/jean/.yarn
+
+PATH: 
+  /home/jean/.yarn/bin:/home/jean/.cargo/bin:/home/jean/.phpenv/shims:/home/jean/.phpenv/bin:/home/jean/.local/bin:/home/jean/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/jean/go/bin:/home/jean/Android/Sdk/platform-tools/:/home/jean/Android/Sdk/cmdline-tools/latest/bin/:/home/jean/Android/Sdk/emulator/
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.15.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  TypeError: Cannot create property 'cache-folder' on string 'cache-folder ~/.yarn lastUpdateCheck 1657029012430'
+      at YarnRegistry.<anonymous> (/home/jean/.yarn/lib/cli.js:92407:30)
+      at Generator.next (<anonymous>)
+      at step (/home/jean/.yarn/lib/cli.js:310:30)
+      at /home/jean/.yarn/lib/cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (/home/jean/.yarn/lib/cli.js:5305:28)
+      at YarnRegistry.<anonymous> (/home/jean/.yarn/lib/cli.js:307:12)
+      at YarnRegistry.saveHomeConfig (/home/jean/.yarn/lib/cli.js:92414:20)
+      at /home/jean/.yarn/lib/cli.js:83495:24
+      at Generator.next (<anonymous>)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
