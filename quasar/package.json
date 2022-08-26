@@ -13,7 +13,7 @@
     "@quasar/extras": "1.15.1",
     "quasar": "2.7.7",
     "vue": "3.2.37",
-    "vue-router": "4.1.4"
+    "vue-router": "4.1.5"
   },
   "devDependencies": {
     "eslint": "8.22.0",
