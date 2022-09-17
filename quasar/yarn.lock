@@ -72,13 +72,13 @@
   resolved "https://registry.yarnpkg.com/@positron/stack-trace/-/stack-trace-1.0.0.tgz#14fcc712a530038ef9be1ce6952315a839f466a8"
   integrity sha512-nWlGg+aMfQDhGYa5FtBhZwldeo2MtdjHdxmEQvhBXEnxgD5IhIYl0PHvex8SdwyN7qcSoMykMWdjyAX7ZxkpMw==
 
-"@quasar/app-vite@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@quasar/app-vite/-/app-vite-1.1.0.tgz#3dbf9c1d8a03cf73dc1bccfac47d42127ea4ee0b"
-  integrity sha512-DNHxI1CFIysu/fB+rLmaopKDTyor/Q9sULnAh/l8gegDQyV0x+BmqxXXzvQloR46ruRWzAhwJoY1TTH0QSozYA==
+"@quasar/app-vite@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@quasar/app-vite/-/app-vite-1.1.1.tgz#d7df510119e767e2cf0bd10fecc8b71774266224"
+  integrity sha512-nMZu0SnOxn+4cPaA7L53Uj13IQBxQ19c5FfvLFzrB5ylxdopwADBn+c/D5oV+b91ZPIWGTkk5cs28IK4OwAiTA==
   dependencies:
     "@quasar/fastclick" "1.1.5"
-    "@quasar/vite-plugin" "^1.2.0"
+    "@quasar/vite-plugin" "^1.2.1"
     "@rollup/pluginutils" "^4.1.2"
     "@types/chrome" "^0.0.191"
     "@types/compression" "^1.7.2"
@@ -123,10 +123,10 @@
   resolved "https://registry.yarnpkg.com/@quasar/fastclick/-/fastclick-1.1.5.tgz#948e79c44098cced6c3d1645315683ebc29ed834"
   integrity sha512-p3JKgTjRlJ1YQXbqTw3Bsa4j0mQdt5dq+WfYvyb7MgKGdephHCKdR/kxA5PCTAmJanGJuDKqRdyGYX/hYN4KGw==
 
-"@quasar/vite-plugin@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@quasar/vite-plugin/-/vite-plugin-1.2.0.tgz#68a89ab22236979973046038b62785ef9325f47c"
-  integrity sha512-NYfCw0MV9aXoiEu/vqX6wFPR5Elcawwd0CbI9SktrvaViAIdaqMYY0TrTcL816OpCPIjWSOVRv8VzHowXOnSLQ==
+"@quasar/vite-plugin@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@quasar/vite-plugin/-/vite-plugin-1.2.1.tgz#ae4a4b672e985e49fc0b2c5edaaf1e48ebcccbe1"
+  integrity sha512-fSgR9z8HqwWMw1RAX+H8YzQXRunuS3BzELvyfENNmNdmj/2ZQzhAE9uAPYS8dWwNN+LpJVhPYxSwBjs1/AJNJg==
 
 "@rollup/pluginutils@^4.1.2":
   version "4.2.1"
